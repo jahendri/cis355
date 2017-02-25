@@ -6,7 +6,7 @@
 	}
 	
 	if ( null==$id ) {
-		header("Location: index.php");
+		header("Location: customers1.php");
 	} else {
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -52,15 +52,15 @@
 					    </div>
 					  </div>
 					  <div class="control-group">
-					    <label class="control-label">Mobile Number</label>
+					    <label class="control-label">Payment Info</label>
 					    <div class="controls">
 					      	<label class="checkbox">
-						     	<?php echo $data['mobile'];?>
+						     	<?php echo $data['payment'];?>
 						    </label>
 					    </div>
 					  </div>
 					    <div class="form-actions">
-						  <a class="btn" href="index.php">Back</a>
+						  <a class="btn" href="customers1.php">Back</a>
 					   </div>
 					
 					 

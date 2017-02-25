@@ -6,21 +6,21 @@
 	if ( !empty($_GET['id'])) {
 		$id = $_REQUEST['id'];
 	}
-	
+	 
 	if ( null==$id ) {
-		header("Location: index.php");
+		header("Location: customers1.php");
 	}
 	
 	if ( !empty($_POST)) {
 		// keep track validation errors
 		$nameError = null;
 		$emailError = null;
-		$mobileError = null;
+		$paymentError = null;
 		
 		// keep track post values
 		$name = $_POST['name'];
 		$email = $_POST['email'];
-		$mobile = $_POST['mobile'];
+		$payment = $_POST['payment'];
 		
 		// validate input
 		$valid = true;
@@ -37,8 +37,8 @@
 			$valid = false;
 		}
 		
-		if (empty($mobile)) {
-			$mobileError = 'Please enter Mobile Number';
+		if (empty($payment)) {
+			$paymentError = 'Please enter Payment Info';
 			$valid = false;
 		}
 		
@@ -46,11 +46,11 @@
 		if ($valid) {
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "UPDATE customers  set name = ?, email = ?, mobile =? WHERE id = ?";
+			$sql = "UPDATE customers  set name = ?, email = ?, payment =? WHERE id = ?";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($name,$email,$mobile,$id));
+			$q->execute(array($name,$email,$payment,$id));
 			Database::disconnect();
-			header("Location: index.php");
+			header("Location: customers1.php");
 		}
 	} else {
 		$pdo = Database::connect();
@@ -61,7 +61,7 @@
 		$data = $q->fetch(PDO::FETCH_ASSOC);
 		$name = $data['name'];
 		$email = $data['email'];
-		$mobile = $data['mobile'];
+		$payment = $data['payment'];
 		Database::disconnect();
 	}
 ?>
@@ -102,18 +102,18 @@
 					      	<?php endif;?>
 					    </div>
 					  </div>
-					  <div class="control-group <?php echo !empty($mobileError)?'error':'';?>">
-					    <label class="control-label">Mobile Number</label>
+					  <div class="control-group <?php echo !empty($paymentError)?'error':'';?>">
+					    <label class="control-label">Payment Info</label>
 					    <div class="controls">
-					      	<input name="mobile" type="text"  placeholder="Mobile Number" value="<?php echo !empty($mobile)?$mobile:'';?>">
-					      	<?php if (!empty($mobileError)): ?>
-					      		<span class="help-inline"><?php echo $mobileError;?></span>
+					      	<input name="payment" type="text"  placeholder="Payment" value="<?php echo !empty($payment)?$payment:'';?>">
+					      	<?php if (!empty($paymentError)): ?>
+					      		<span class="help-inline"><?php echo $paymentError;?></span>
 					      	<?php endif;?>
 					    </div>
 					  </div>
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Update</button>
-						  <a class="btn" href="index.php">Back</a>
+						  <a class="btn" href="customers1.php">Back</a>
 						</div>
 					</form>
 				</div>
