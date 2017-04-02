@@ -13,9 +13,12 @@
     		</div>
 			<div class="row">
 				<p>
-					<a href="create1.php" class="btn btn-success">Create</a>
+					<a href="create1.php" class="btn btn-success">Create Customer</a>
 				</p>
-				
+				<p>
+					<a href="sellers.php" class="btn btn-success">Sellers Grid</a>
+				</p>
+				 
 				<table class="table table-striped table-bordered">
 		              <thead>
 		                <tr>

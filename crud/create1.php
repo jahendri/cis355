@@ -30,7 +30,7 @@
 		
 		if (empty($payment)) {
 			$paymentError = 'Please enter Payment info';
-			$valid = false;
+			$valid = false; 
 		}
 		 
 		// insert data
