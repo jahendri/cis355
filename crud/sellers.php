@@ -16,7 +16,7 @@
 					<a href="seller_create.php" class="btn btn-success">Create Seller</a>
 				</p>
 				<p> 
-					<a href="customers1.php" class="btn btn-success">Customer Grid</a>
+					<a href="customers1.php" class="btn">Customer Grid</a>
 				</p>
 				
 				<table class="table table-striped table-bordered">
