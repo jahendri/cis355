@@ -16,11 +16,12 @@
 		$nameError = null;
 		$emailError = null;
 		$paymentError = null;
-		
+	
 		// keep track post values
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$payment = $_POST['payment'];
+		
 		
 		// validate input
 		$valid = true;
@@ -41,7 +42,8 @@
 			$paymentError = 'Please enter Payment Info';
 			$valid = false;
 		}
-		
+			
+			
 		// update data
 		if ($valid) {
 			$pdo = Database::connect();
@@ -62,6 +64,7 @@
 		$name = $data['name'];
 		$email = $data['email'];
 		$payment = $data['payment'];
+		
 		Database::disconnect();
 	}
 ?>
@@ -111,6 +114,7 @@
 					      	<?php endif;?>
 					    </div>
 					  </div>
+					 
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Update</button>
 						  <a class="btn" href="customers1.php">Back</a>

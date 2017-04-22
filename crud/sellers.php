@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link   href="css/bootstrap.min.css" rel="stylesheet">
+	 <link   href="css/dropdown.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
 </head>
  
@@ -15,9 +16,35 @@
 				<p> 
 					<a href="seller_create.php" class="btn btn-success">Create Seller</a>
 				</p>
-				<p> 
-					<a href="customers1.php" class="btn">Customer Grid</a>
-				</p>
+				
+				<div class="dropdown">
+				  <button onclick="myFunction()" class="dropbtn">Menu</button>
+				  <div id="myDropdown" class="dropdown-content">
+					<a href="customers1.php">Customers Grid</a>
+					<a href="purchases.php">Purchases Grid</a>
+					
+				  </div>
+				</div>
+				<script>
+				function myFunction() {
+					document.getElementById("myDropdown").classList.toggle("show");
+				}
+
+				// Close the dropdown menu if the user clicks outside of it
+				window.onclick = function(event) {
+				  if (!event.target.matches('.dropbtn')) {
+
+					var dropdowns = document.getElementsByClassName("dropdown-content");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+					  var openDropdown = dropdowns[i];
+					  if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					  }
+					}
+				  }
+				}
+				</script>
 				
 				<table class="table table-striped table-bordered">
 		              <thead>
